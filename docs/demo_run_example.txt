@@ -1,0 +1,27 @@
+Demo run created at 2026-04-04T19:59:43
+
+[Researcher] START
+Inputs: topic=AI agents in education tone=friendly podcast script
+[Researcher] TOOL web_search
+Args: {"query": "AI agents in education", "max_results": 5}
+Result: returned 3 results
+[Researcher] END
+Output: research notes stored in shared state
+
+[Analyst] START
+Inputs: consuming researcher notes from shared state
+[Analyst] END
+Output: generated 4 structured bullets
+
+[ChiefEditor] START
+Inputs: turning bullets into final markdown
+[ChiefEditor] TOOL word_count
+Args: {"text_preview": "# AI agents in education\n\n## Opening\nThis mock-mode draft uses a friendly podcas"}
+Result: word count=95
+[ChiefEditor] END
+Output: final markdown stored in shared state
+
+# Annotation
+Researcher is the only agent that calls the search tool.
+Analyst works only from shared state and does not call tools.
+Editor uses the internal word_count tool and never touches web search.
